@@ -12,19 +12,21 @@
 
 #include "libft.h"
 
-void	return_string(char *str, long num, int len)
+static void	return_string(char *str, long num, int len)
 {
 	if (num < 0)
 	{
 		str[0] = '-';
-		num = -num;
+		num *= -1;
 	}
 	if (num == 0)
 		str[0] = '0';
 	while (num)
 	{
-		str[--len] = (num % 10) + '0';
+        len--;
+		str[len] = 48 + (num % 10);
 		num /= 10;
+
 	}
 }
 
@@ -47,7 +49,12 @@ char	*ft_itoa(int n)
 	str = (char *)malloc(len + 1);
 	if (!str)
 		return (NULL);
-	str[len] = '\0';
-	return_string(str, num, len);
+    if(num == -2147483648)
+    {
+        str="-2147483648";
+        return(str);
+    }
+    return_string(str, num, len);
+    str[len] = '\0';
 	return (str);
 }
