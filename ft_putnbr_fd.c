@@ -35,5 +35,7 @@ void	ft_putnbr_fd(int n, int fd)
 		write(fd, "-", 1);
 		n = -n;
 	}
+	if(n == 0)
+		write(fd,"0",1);
 	print_it(n, fd);
 }
