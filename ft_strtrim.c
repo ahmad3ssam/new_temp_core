@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+//not main file the main file for (ft_strtrim) is ft_strtirm.c
 #include "libft.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -73,7 +74,7 @@ int	to_trim(const char *set, char c)
 	}
 	return (0);
 }
-/*
+
 int	main(void)
 {
 	char *result;
@@ -115,4 +116,4 @@ int	main(void)
 	free(result);
 
 	return (0);
-}8*/
+}

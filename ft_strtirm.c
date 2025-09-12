@@ -66,7 +66,7 @@ static int	to_trim(const char *set, char c)
 	}
 	return (0);
 }
-/*
+
 int	main(void)
 {
 	char *result;
@@ -108,4 +108,4 @@ int	main(void)
 	free(result);
 
 	return (0);
-}*/
+}
