@@ -94,7 +94,6 @@ char	**ft_split(char const *s, char c)
 	int		*words_len_arr;
 	int		i;
 
-	i = 0;
 	if (!s)
 		return (NULL);
 	words = words_count(s, c);
