@@ -14,9 +14,7 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	if (*s != '\0')
-	{
-		write(fd, s, 1);
-		ft_putstr_fd((++s), fd);
-	}
+	if (!s)
+		return ;
+	write(fd, s, ft_strlen(s));
 }

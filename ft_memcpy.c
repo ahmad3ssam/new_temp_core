@@ -21,10 +21,17 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	i = 0;
 	ptr_src = (unsigned char *)src;
 	ptr_dest = (unsigned char *)dest;
-	while (ptr_src[i] != '\0' && i < n)
+	while ( i < n)
 	{
 		ptr_dest[i] = ptr_src[i];
 		i++;
 	}
 	return (ptr_dest);
 }
+
+// int main()
+// {
+// 	char p[12]="123";
+// 	ft_memcpy(p,"",12);
+// 	printf("%c",p[2]);
+// }

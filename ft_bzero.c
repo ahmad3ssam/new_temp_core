@@ -17,7 +17,7 @@ void	ft_bzero(void *s, size_t n)
 	unsigned char	*ptr;
 	size_t			i;
 
-	ptr = s;
+	ptr = (unsigned char *)s;
 	i = 0;
 	while (i < n)
 	{
@@ -25,3 +25,10 @@ void	ft_bzero(void *s, size_t n)
 		i++;
 	}
 }
+
+// int main(){
+// 	char *p="ahmed hammad";
+// 	printf("%s\n",p);
+// 	ft_bzero(p,6);
+// 	printf("%s\n",p);
+// }

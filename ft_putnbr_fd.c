@@ -14,13 +14,12 @@
 
 void	print_it(int n, int fd)
 {
-	char	c;
-
+	char c;
 	if (n == 0)
 		return ;
-	c = (n % 10) + '0';
 	print_it(n / 10, fd);
-	write(fd, &c, 1);
+	c = ('0' + (n % 10));
+	write(fd,&c, 1);
 }
 
 void	ft_putnbr_fd(int n, int fd)
@@ -36,6 +35,37 @@ void	ft_putnbr_fd(int n, int fd)
 		n = -n;
 	}
 	if(n == 0)
+	{
 		write(fd,"0",1);
+		return;
+	}
 	print_it(n, fd);
 }
+
+// #include "libft.h"
+// #include <fcntl.h>  // for open
+// #include <stdio.h>  // for printf
+
+// int main(void)
+// {
+
+//     // Test writing to standard output
+//     ft_putnbr_fd(0, 1);
+//     write(1, "\n", 1);
+
+//     ft_putnbr_fd(42, 1);
+//     write(1, "\n", 1);
+
+//     ft_putnbr_fd(-42, 1);
+//     write(1, "\n", 1);
+
+//     ft_putnbr_fd(2147483647, 1); // INT_MAX
+//     write(1, "\n", 1);
+
+//     ft_putnbr_fd(-2147483648, 1); // INT_MIN
+//     write(1, "\n", 1);
+
+//     // Test writing to a file
+//     printf("Check numbers.txt for output.\n");
+//     return 0;
+// }

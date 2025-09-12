@@ -29,3 +29,9 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	}
 	return (0);
 }
+
+// int main()
+// {
+// 	int i=ft_memcmp("ahmed hammad","ahmed ha",1);
+// 	printf("%d",i);
+// }
