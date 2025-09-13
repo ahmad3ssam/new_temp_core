@@ -6,124 +6,136 @@
 /*   By: ahhammad <ahhammad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 11:36:28 by ahhammad          #+#    #+#             */
-/*   Updated: 2025/09/13 07:59:25 by ahhammad         ###   ########.fr       */
+/*   Updated: 2025/09/13 14:39:43 by ahhammad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-static int	words_count(const char *s, char c)
+static int	count_strings(const char *s, char c)
 {
-	int	count;
+	int	strings;
 	int	i;
 
-	count = 0;
+	strings = 0;
 	i = 0;
 	while (s[i])
 	{
-		while (s[i] && s[i] == c)
+		while (s[i] == c)
 			i++;
 		if (s[i] && s[i] != c)
 		{
-			count++;
+			strings++;
 			while (s[i] && s[i] != c)
 				i++;
 		}
 	}
-	return (count);
+	return (strings);
 }
 
-static void	word_len(const char *s, char c, int *lenWord)
+static int	get_len(const char *s, char c)
 {
 	int	len;
-	int	i;
-	int	j;
 
 	len = 0;
-	i = 0;
-	j = 0;
-	while (s[i])
+	while (*s && *s != c)
 	{
-		len = 0;
-		while (s[i] && s[i] != c)
-		{
-			i++;
-			len++;
-		}
-		if (len > 0)
-			lenWord[j++] = len;
-		if (s[i])
-			i++;
+		len++;
+		s++;
 	}
+	return (len);
 }
 
-static int	allocate_words(char **arr, int *words_len_arr, int words)
+static char	*create_string(const char *s, char c)
 {
-	int	i;
+	int		len;
+	int		i;
+	char	*str;
 
+	len = get_len(s, c);
+	str = malloc(len + 1);
 	i = 0;
-	while (i < words)
+	if (!str)
+		return (NULL);
+	while (s[i] && i < len && s[i] != c)
 	{
-		arr[i] = (char *)malloc(words_len_arr[i] + 1);
-		if (!arr[i])
-		{
-			while (i > 0)
-				free(arr[--i]);
-			return (0);
-		}
+		str[i] = s[i];
 		i++;
 	}
-	return (1);
+	str[len] = '\0';
+	return (str);
 }
 
-static void	set_data(char **arr, const char *s, int *words_len_arr, char c)
+static void	*free_split(char **list, int elements)
 {
 	int	i;
-	int	j;
-	int	k;
 
 	i = 0;
-	k = 0;
-	while (s[i])
+	while (i < elements)
 	{
-		j = 0;
-		while (j < words_len_arr[k] && s[i] != c)
-		{
-			arr[k][j++] = s[i++];
-		}
-		if (j == words_len_arr[k])
-		{
-			arr[k][j] = '\0';
-			k++;
-		}
-		if (s[i])
-			i++;
+		free(list[i]);
+		i++;
 	}
-	arr[k] = NULL;
+	free(list);
+	return (NULL);
 }
 
-char	**ft_split(const char *s, char c)
+char	**ft_split(char const *s, char c)
 {
-	int		words;
-	char	**arr;
-	int		*words_len_arr;
+	char	**list;
+	int		l;
 
 	if (!s)
 		return (NULL);
-	words = words_count(s, c);
-	words_len_arr = (int *)malloc(words * sizeof(int));
-	arr = (char **)malloc((words + 1) * sizeof(char *));
-	if (!arr || !words_len_arr)
+	list = malloc((count_strings(s, c) + 1) * sizeof(char *));
+	if (!list)
 		return (NULL);
-	word_len(s, c, words_len_arr);
-	if (!allocate_words(arr, words_len_arr, words))
+	l = 0;
+	while (*s)
 	{
-		free(arr);
-		free(words_len_arr);
-		return (NULL);
+		while (*s && *s == c)
+			s++;
+		if (*s && *s != c)
+		{
+			list[l++] = create_string(s, c);
+			if (!list[l - 1])
+				return (free_split(list, l));
+			while (*s && *s != c)
+				s++;
+		}
 	}
-	set_data(arr, s, words_len_arr, c);
-	free(words_len_arr);
-	return (arr);
+	list[l] = NULL;
+	return (list);
 }
+
+/*
+int	main(void)
+{
+	char	**result;
+	int		i;
+
+	//     char    *str = "
+	//     char    sep = '^';
+	result = ft_split("      split       this for   me  !       ", ' ');
+	if (!result)
+	{
+		printf("ft_split returned NULL\n");
+		return (1);
+	}
+	i = 0;
+	while (result[i])
+	{
+		printf("Word[%d]: %s\n", i, result[i]);
+		i++;
+	}
+	// free memory
+	i = 0;
+	while (result[i])
+	{
+		free(result[i]);
+		i++;
+	}
+	free(result);
+	return (0);
+}
+*/

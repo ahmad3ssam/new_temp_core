@@ -6,7 +6,7 @@
 /*   By: ahhammad <ahhammad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 13:17:09 by ahhammad          #+#    #+#             */
-/*   Updated: 2025/09/13 07:52:20 by ahhammad         ###   ########.fr       */
+/*   Updated: 2025/09/13 12:42:34 by ahhammad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,31 +42,3 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 	print_it(n, fd);
 }
-
-// #include "libft.h"
-// #include <fcntl.h>  // for open
-// #include <stdio.h>  // for printf
-
-// int main(void)
-// {
-
-//     // Test writing to standard output
-//     ft_putnbr_fd(0, 1);
-//     write(1, "\n", 1);
-
-//     ft_putnbr_fd(42, 1);
-//     write(1, "\n", 1);
-
-//     ft_putnbr_fd(-42, 1);
-//     write(1, "\n", 1);
-
-//     ft_putnbr_fd(2147483647, 1); // INT_MAX
-//     write(1, "\n", 1);
-
-//     ft_putnbr_fd(-2147483648, 1); // INT_MIN
-//     write(1, "\n", 1);
-
-//     // Test writing to a file
-//     printf("Check numbers.txt for output.\n");
-//     return (0);
-// }

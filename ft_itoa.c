@@ -6,7 +6,7 @@
 /*   By: ahhammad <ahhammad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 10:55:19 by ahhammad          #+#    #+#             */
-/*   Updated: 2025/09/13 10:32:14 by ahhammad         ###   ########.fr       */
+/*   Updated: 2025/09/13 12:33:27 by ahhammad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,15 @@ char	*ft_itoa(int n)
 		len = 1;
 	else
 		len = 0;
-	while (n)
+	while (num)
 	{
-		n /= 10;
+		num /= 10;
 		len++;
 	}
 	str = (char *)malloc(len + 1);
 	if (!str)
 		return (NULL);
-	return_string(str, num, len);
+	return_string(str, n, len);
 	str[len] = '\0';
 	return (str);
 }

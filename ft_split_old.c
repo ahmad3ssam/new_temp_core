@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_split_old.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahhammad <ahhammad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 11:36:28 by ahhammad          #+#    #+#             */
-/*   Updated: 2025/09/11 17:20:52 by ahhammad         ###   ########.fr       */
+/*   Updated: 2025/09/13 14:39:23 by ahhammad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,13 +117,16 @@ char	**ft_split(char const *s, char c)
 /*
 int	main(void)
 {
-	char **arr = ft_split("dddgH e zlo  ** World  This is   a test  ", ' ');
-	int i = 0;
+	char	**arr;
+	int		i;
 
+	arr = ft_split("dddgH e zlo  ** World  This is   a test  ", ' ');
+	i = 0;
 	while (arr[i])
 	{
 		printf("arr[%d]: '%s'\n", i, arr[i]);
 		i++;
 	}
 	return (0);
-}*/
+}
+*/

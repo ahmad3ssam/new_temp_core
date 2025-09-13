@@ -6,7 +6,7 @@
 /*   By: ahhammad <ahhammad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 21:20:36 by ahhammad          #+#    #+#             */
-/*   Updated: 2025/09/13 07:52:00 by ahhammad         ###   ########.fr       */
+/*   Updated: 2025/09/13 12:38:03 by ahhammad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,3 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	}
 	return (ptr_dest);
 }
-
-// int main()
-// {
-// 	char p[12]="123";
-// 	ft_memcpy(p,"",12);
-// 	printf("%c",p[2]);
-// }

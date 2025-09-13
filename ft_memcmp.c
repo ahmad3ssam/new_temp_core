@@ -6,7 +6,7 @@
 /*   By: ahhammad <ahhammad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 00:55:30 by ahhammad          #+#    #+#             */
-/*   Updated: 2025/09/11 17:00:55 by ahhammad         ###   ########.fr       */
+/*   Updated: 2025/09/13 12:37:58 by ahhammad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,3 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	}
 	return (0);
 }
-
-// int main()
-// {
-// 	int i=ft_memcmp("ahmed hammad","ahmed ha",1);
-// 	printf("%d",i);
-// }

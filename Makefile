@@ -10,7 +10,7 @@ CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
 
-NAME = libft.a 
+NAME = libft.a
 
 all: $(NAME) 
 
@@ -18,9 +18,11 @@ $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS) 
 $(OBJS): $(SRCS) 
 	${CC} $(CFLAGS) -c $(SRCS) 
-clean: 
+clean:
 	rm -f $(OBJS) 
 fclean: clean 
 	rm -f $(NAME)
 
 re: fclean $(NAME)
+
+.PHONY: all clean fclean re

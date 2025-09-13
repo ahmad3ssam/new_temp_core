@@ -6,7 +6,7 @@
 /*   By: ahhammad <ahhammad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 15:29:04 by ahhammad          #+#    #+#             */
-/*   Updated: 2025/09/11 16:59:57 by ahhammad         ###   ########.fr       */
+/*   Updated: 2025/09/13 12:27:17 by ahhammad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,3 @@ void	ft_bzero(void *s, size_t n)
 		i++;
 	}
 }
-
-// int main(){
-// 	char *p="ahmed hammad";
-// 	printf("%s\n",p);
-// 	ft_bzero(p,6);
-// 	printf("%s\n",p);
-// }
