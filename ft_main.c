@@ -6,15 +6,14 @@
 /*   By: ahhammad <ahhammad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 10:10:19 by ahhammad          #+#    #+#             */
-/*   Updated: 2025/09/10 10:10:20 by ahhammad         ###   ########.fr       */
+/*   Updated: 2025/09/13 07:54:21 by ahhammad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include <stdio.h>
 
 int	main(void)
 {
-	printf("%d\n",123);
+	printf("%d\n", 123);
 	return (0);
 }

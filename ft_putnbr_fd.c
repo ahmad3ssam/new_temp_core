@@ -6,7 +6,7 @@
 /*   By: ahhammad <ahhammad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 13:17:09 by ahhammad          #+#    #+#             */
-/*   Updated: 2025/09/11 17:13:15 by ahhammad         ###   ########.fr       */
+/*   Updated: 2025/09/13 07:52:20 by ahhammad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 
 void	print_it(int n, int fd)
 {
-	char c;
+	char	c;
+
 	if (n == 0)
 		return ;
 	print_it(n / 10, fd);
 	c = ('0' + (n % 10));
-	write(fd,&c, 1);
+	write(fd, &c, 1);
 }
 
 void	ft_putnbr_fd(int n, int fd)
@@ -34,10 +35,10 @@ void	ft_putnbr_fd(int n, int fd)
 		write(fd, "-", 1);
 		n = -n;
 	}
-	if(n == 0)
+	if (n == 0)
 	{
-		write(fd,"0",1);
-		return;
+		write(fd, "0", 1);
+		return ;
 	}
 	print_it(n, fd);
 }
@@ -67,5 +68,5 @@ void	ft_putnbr_fd(int n, int fd)
 
 //     // Test writing to a file
 //     printf("Check numbers.txt for output.\n");
-//     return 0;
+//     return (0);
 // }

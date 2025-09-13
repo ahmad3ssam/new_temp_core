@@ -6,7 +6,7 @@
 /*   By: ahhammad <ahhammad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 13:53:58 by ahhammad          #+#    #+#             */
-/*   Updated: 2025/09/11 17:01:20 by ahhammad         ###   ########.fr       */
+/*   Updated: 2025/09/13 07:52:14 by ahhammad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_putchar_fd(char c, int fd)
 {
-		write(fd, &c, 1);
+	write(fd, &c, 1);
 }

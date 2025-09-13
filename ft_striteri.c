@@ -6,7 +6,7 @@
 /*   By: ahhammad <ahhammad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 15:45:21 by ahhammad          #+#    #+#             */
-/*   Updated: 2025/09/11 17:01:43 by ahhammad         ###   ########.fr       */
+/*   Updated: 2025/09/13 07:52:47 by ahhammad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
 	int	index;
 
-	if(!f || !s)
-		return;
+	if (!f || !s)
+		return ;
 	index = 0;
 	while (s[index] != '\0')
 	{

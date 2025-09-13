@@ -6,7 +6,7 @@
 /*   By: ahhammad <ahhammad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 21:38:31 by ahhammad          #+#    #+#             */
-/*   Updated: 2025/09/11 17:00:52 by ahhammad         ###   ########.fr       */
+/*   Updated: 2025/09/13 07:51:53 by ahhammad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	unsigned char		*str;
-	size_t				index;
+	unsigned char	*str;
+	size_t			index;
 
 	str = (unsigned char *)s;
 	index = 0;

@@ -6,7 +6,7 @@
 /*   By: ahhammad <ahhammad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 10:55:19 by ahhammad          #+#    #+#             */
-/*   Updated: 2025/09/11 17:00:41 by ahhammad         ###   ########.fr       */
+/*   Updated: 2025/09/13 10:32:14 by ahhammad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,9 @@ static void	return_string(char *str, long num, int len)
 		str[0] = '0';
 	while (num)
 	{
-        len--;
+		len--;
 		str[len] = 48 + (num % 10);
 		num /= 10;
-
 	}
 }
 
@@ -49,12 +48,7 @@ char	*ft_itoa(int n)
 	str = (char *)malloc(len + 1);
 	if (!str)
 		return (NULL);
-    if(num == -2147483648)
-    {
-        str="-2147483648";
-        return(str);
-    }
-    return_string(str, num, len);
-    str[len] = '\0';
+	return_string(str, num, len);
+	str[len] = '\0';
 	return (str);
 }

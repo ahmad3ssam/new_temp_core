@@ -6,18 +6,46 @@
 /*   By: ahhammad <ahhammad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 11:36:28 by ahhammad          #+#    #+#             */
-/*   Updated: 2025/09/12 11:00:00 by ahhammad         ###   ########.fr       */
+/*   Updated: 2025/09/11 17:20:52 by ahhammad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-static int	words_count(const char *s, char c)
+static void	word_len(char const *s, char c, int *lenWord)
 {
-	int count = 0;
-	int i = 0;
+	int	len;
+	int	i;
+	int	j;
 
+	len = 0;
+	i = 0;
+	j = 0;
+	while (s[i])
+	{
+		len = 0;
+		while (s[i] && s[i] != c)
+		{
+			i++;
+			len++;
+		}
+		if (len > 0)
+		{
+			lenWord[j] = len;
+			j++;
+		}
+		if (s[i])
+			i++;
+	}
+}
+
+static int	words_count(char const *s, char c)
+{
+	int	count;
+	int	i;
+
+	count = 0;
+	i = 0;
 	while (s[i])
 	{
 		while (s[i] && s[i] == c)
@@ -32,72 +60,39 @@ static int	words_count(const char *s, char c)
 	return (count);
 }
 
-static void	word_len(const char *s, char c, int *lenWord)
+void	set_data(char **arr, char const *s, int *Words_len_arr, char c)
 {
-	int len = 0;
-	int i = 0;
-	int j = 0;
+	int	i;
+	int	j;
+	int	k;
 
-	while (s[i])
-	{
-		len = 0;
-		while (s[i] && s[i] != c)
-		{
-			i++;
-			len++;
-		}
-		if (len > 0)
-			lenWord[j++] = len;
-		if (s[i])
-			i++;
-	}
-}
-
-static int	allocate_words(char **arr, int *words_len_arr, int words)
-{
-	int i = 0;
-
-	while (i < words)
-	{
-		arr[i] = (char *)malloc(words_len_arr[i] + 1);
-		if (!arr[i])
-		{
-			while (i > 0)
-				free(arr[--i]);
-			return (0);
-		}
-		i++;
-	}
-	return (1);
-}
-
-static void	set_data(char **arr, const char *s, int *words_len_arr, char c)
-{
-	int i = 0, j, k = 0;
-
+	i = 0;
+	k = 0;
 	while (s[i])
 	{
 		j = 0;
-		while (j < words_len_arr[k] && s[i] != c)
+		while (j < Words_len_arr[k] && s[i] != c)
 		{
-			arr[k][j++] = s[i++];
+			arr[k][j] = s[i];
+			j++;
+			i++;
 		}
-		if (j == words_len_arr[k])
+		if (j != 0 && j == Words_len_arr[k] && (s[i] == c || s[i] == '\0'))
 		{
 			arr[k][j] = '\0';
 			k++;
 		}
-		if (s[i])
-			i++;
+		i++;
 	}
 	arr[k] = NULL;
 }
 
-char	**ft_split(const char *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	int		words;
 	char	**arr;
 	int		*words_len_arr;
+	int		i;
 
 	if (!s)
 		return (NULL);
@@ -107,13 +102,28 @@ char	**ft_split(const char *s, char c)
 	if (!arr || !words_len_arr)
 		return (NULL);
 	word_len(s, c, words_len_arr);
-	if (!allocate_words(arr, words_len_arr, words))
+	i = 0;
+	while (i < words)
 	{
-		free(arr);
-		free(words_len_arr);
-		return (NULL);
+		arr[i] = (char *)malloc(words_len_arr[i] + 1);
+		if (!arr[i])
+			return (NULL);
+		i++;
 	}
 	set_data(arr, s, words_len_arr, c);
-	free(words_len_arr);
 	return (arr);
 }
+
+/*
+int	main(void)
+{
+	char **arr = ft_split("dddgH e zlo  ** World  This is   a test  ", ' ');
+	int i = 0;
+
+	while (arr[i])
+	{
+		printf("arr[%d]: '%s'\n", i, arr[i]);
+		i++;
+	}
+	return (0);
+}*/

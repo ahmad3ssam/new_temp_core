@@ -6,7 +6,7 @@
 /*   By: ahhammad <ahhammad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 21:20:36 by ahhammad          #+#    #+#             */
-/*   Updated: 2025/09/11 17:00:57 by ahhammad         ###   ########.fr       */
+/*   Updated: 2025/09/13 07:52:00 by ahhammad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	i = 0;
 	ptr_src = (unsigned char *)src;
 	ptr_dest = (unsigned char *)dest;
-	while ( i < n)
+	while (i < n)
 	{
 		ptr_dest[i] = ptr_src[i];
 		i++;

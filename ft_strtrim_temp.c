@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtirm.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim_temp.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahhammad <ahhammad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 21:35:04 by ahhammad          #+#    #+#             */
-/*   Updated: 2025/09/11 17:15:54 by ahhammad         ###   ########.fr       */
+/*   Updated: 2025/09/13 07:59:58 by ahhammad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+// not main file the main file for (ft_strtrim) is ft_strtirm.c
 #include "libft.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-static int	to_trim(const char *set, char c);
-static char	*new_str(const char *s1, int start, int end);
+int		to_trim(const char *set, char c);
+char	*new_str(const char *s1, int start, int end);
 
 char	*ft_strtrim(const char *s1, const char *set)
 {
@@ -21,9 +25,9 @@ char	*ft_strtrim(const char *s1, const char *set)
 	int	j;
 
 	i = 0;
-	j = ft_strlen(s1) - 1;
+	j = strlen(s1) - 1;
 	if (j <= 0)
-		return (ft_strdup(""));
+		return (NULL);
 	while (to_trim(set, s1[i]))
 		i++;
 	while (to_trim(set, s1[j]))
@@ -31,14 +35,18 @@ char	*ft_strtrim(const char *s1, const char *set)
 	return (new_str(s1, i, j));
 }
 
-static char	*new_str(const char *s1, int head, int tail)
+char	*new_str(const char *s1, int head, int tail)
 {
 	char	*str;
 	int		i;
 
-	if (tail < 0 || head > (int)ft_strlen(s1))
+	if (tail < 0 || head > (int)strlen(s1))
+	{
+		printf("%d\n%d\n", tail, head);
 		return (ft_strdup(""));
+	}
 	str = malloc((abs(tail - head) + 1));
+	printf("len %d\n", (abs(tail - head) + 1));
 	if (!str)
 		return (NULL);
 	i = 0;
@@ -51,7 +59,7 @@ static char	*new_str(const char *s1, int head, int tail)
 	return (str);
 }
 
-static int	to_trim(const char *set, char c)
+int	to_trim(const char *set, char c)
 {
 	int	i;
 
@@ -66,7 +74,7 @@ static int	to_trim(const char *set, char c)
 	}
 	return (0);
 }
-
+/*
 int	main(void)
 {
 	char *result;
@@ -93,7 +101,7 @@ int	main(void)
 	// printf("asddsa\n");
 
 	// 5. Empty input string
-	result = ft_strtrim(" ", " ");
+	result = ft_strtrim("", " ");
 	printf("Case 5: |%s|\n", result); // Expected: ||
 	free(result);
 
@@ -108,4 +116,4 @@ int	main(void)
 	free(result);
 
 	return (0);
-}
+}*/
